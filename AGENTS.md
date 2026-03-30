@@ -25,7 +25,7 @@ custom_components/zerobyte/
   sensor.py                            # Sensor entities (status, timestamps, sizes, counts)
   binary_sensor.py                     # Binary sensor entities (enabled, health)
   strings.json                         # Config flow UI strings and error messages
-  icons/
+  brand/
     icon.png                           # Zerobyte logo (512×512 PNG from upstream)
 ```
 
@@ -97,4 +97,6 @@ Stats sub-object: `total_size` (bytes), `snapshots_count`.
   If it should be fetched every cycle, call it from `coordinator.py`'s
   `_async_update_data` and add the result to the returned dict.
 - **Changing poll interval**: Edit `DEFAULT_SCAN_INTERVAL` in `const.py`.
-- **Updating the icon**: Replace `custom_components/zerobyte/icons/icon.png`.
+- **Updating the icon**: Replace `custom_components/zerobyte/brand/icon.png`.
+  HA 2026.3+ serves it via the local Brands Proxy API at
+  `/api/brands/integration/zerobyte/icon.png`.
